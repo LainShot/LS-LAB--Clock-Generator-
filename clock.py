@@ -48,7 +48,6 @@ output = display_string[:3] + eos #the final output is the first three char of t
 draw.text((20,0), (output), font = ImageFont.truetype('Font.tff',25), fill = 0) 
 
 #now we can show this on the console log and push it to the screen.
-print ("PUSHING CLOCK OUT TO SCREEN")
 show.ShowImage(show.getbuffer(image1))
 
 
@@ -56,9 +55,6 @@ show.ShowImage(show.getbuffer(image1))
 # FRONT PANEL 
 #
 ##################################################################################
-
-
-
 
 
 #Lets setup our callbacks for our buttons 
@@ -69,7 +65,6 @@ def button_down_callback(channel):
     print("Button DOWN was pushed!")
     time.sleep(1)
 
-
 #Lets setup all of our pins for buttons 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(20, GPIO.IN,pull_up_down=GPIO.PUD_UP)
@@ -78,4 +73,4 @@ GPIO.setup(21, GPIO.IN,pull_up_down=GPIO.PUD_UP)
 GPIO.add_event_detect(20,GPIO.RISING,callback=button_up_callback) # Setup event on pin 20 rising edge
 GPIO.add_event_detect(21,GPIO.RISING,callback=button_down_callback) # Setup event on pin 21 rising edge
 
-message = input("PUSH ANY KEY TO END\n\n") # Run until someone presses enter
+message = input("PUSH ANY KEY TO END\n\n") # Run until someone hit enter
